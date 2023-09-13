@@ -29,10 +29,11 @@ export class GameComponent implements OnInit {
   async ngOnInit() {
     this.newGame();
     this.route.params.subscribe(async (params) => {
-      console.log(params);
       this.gameId = params['id'];
       let docData = (await this.firebaseService.getSingleDocRef("games", this.gameId)).data();
-      console.log(docData)
+      if(docData == undefined) {
+        window.location.href = "/"
+      }
       this.game.currentPlayer = docData['currentPlayer'];
       this.game.playedCards = docData['playedCards'];
       this.game.players = docData['players'];
