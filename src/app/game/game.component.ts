@@ -37,6 +37,9 @@ export class GameComponent implements OnInit {
       this.game.playedCards = docData['playedCards'];
       this.game.players = docData['players'];
       this.game.currentPlayer = docData['curentPlayer'];
+      if(isNaN(this.game.currentPlayer)) {
+        this.game.currentPlayer = 0;
+      }
     })
   }
   newGame() {
@@ -44,7 +47,7 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if(!this.pickCardAnimation) {
+    if(!this.pickCardAnimation && this.game.players.length > 0) {
       this.currentCard = this.game.stack.pop();
       this.firebaseService.updateGame('games', this.gameId, this.game.toJson());
       this.pickCardAnimation = true;

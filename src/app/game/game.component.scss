@@ -3,9 +3,11 @@
   height: 100vh;
   max-width: 100%;
   background-image: url(/assets/img/bg.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 
   .card-stack {
@@ -13,6 +15,16 @@
     img {
       position: absolute;
       width: 120px;
+    }
+    @media screen and (max-width: 1030px) {
+      margin-right: 300px;
+      img {
+        width: 80px;
+      }
+    }
+    @media screen and (max-width: 630px) {
+      margin-right: 0px;
+
     }
   }
 }
@@ -28,11 +40,11 @@
 .pick-card {
   transition: all 125ms ease-in-out;
   animation: pick-card-animation 1s ease-in-out;
-  transform: scale(1.5) translateX(120px) translateY(-190px) rotate(-10deg);
+  transform: scale(1.3) translateX(120px) translateY(-190px) rotate(-10deg);
 }
 
 .played-card {
-  transform: scale(1.5) translateX(120px) translateY(-190px) rotate(-10deg);
+  transform: scale(1.3) translateX(120px) translateY(-190px) rotate(-10deg);
   right: 25px;
 }
 
@@ -46,7 +58,7 @@
   }
 
   100% {
-    transform: scale(1.5) translateX(120px) translateY(-190px) rotate(-10deg);
+    transform: scale(1.3) translateX(120px) translateY(-190px) rotate(-10deg);
   }
 }
 
@@ -60,6 +72,7 @@
   position: absolute;
   right: 32px;
   bottom: 32px;
+
 }
 
 .pin-bottom {
@@ -67,4 +80,46 @@
   bottom: 32px;
   left: 100px;
   right: 100px;
+  @media screen and (max-width: 630px) {
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.mobile-players {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+
+}
+
+.mobile-player-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 120px;
+}
+
+.mobile-player-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+
+@media screen and (max-width: 630px) {
+  .hide-mobile {
+    display: none;
+  }
+
+}
+@media screen and (min-width: 630px) {
+  .hide-desktop {
+    display: none;
+  }
+
 }

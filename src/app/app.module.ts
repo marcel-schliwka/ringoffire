@@ -20,6 +20,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { FirebaseServiceComponent } from './firebase-service/firebase-service.component';
+import { MobilePlayerComponent } from './mobile-player/mobile-player.component';
 
 
 
@@ -35,7 +36,8 @@ import { FirebaseServiceComponent } from './firebase-service/firebase-service.co
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
-    FirebaseServiceComponent
+    FirebaseServiceComponent,
+    MobilePlayerComponent
   ],
   imports: [
     BrowserModule,

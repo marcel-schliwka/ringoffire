@@ -1,4 +1,7 @@
-<app-player *ngFor="let player of game.players; let i = index;" class="player-position" [ngStyle]="{'top.px': 100 + (i * 90)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+<app-player *ngFor="let player of game.players; let i = index;" class="player-position hide-mobile" [ngStyle]="{'top.px': 100 + (i * 90)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+<div class="mobile-player-wrapper  hide-desktop">
+  <app-mobile-player class="mobile-players" *ngFor="let player of game.players; let i = index;" [ngStyle]="{'left.px': 20 + (i * 110)}" [name]="player" [playerActive]="i == game.currentPlayer"></app-mobile-player>
+</div>
 
 <div class="field">
 
@@ -11,7 +14,7 @@
   </div>
 </div>
 
-<app-game-info [card]="currentCard" class="pin-bottom"></app-game-info>
+<app-game-info [card]="currentCard" [players]="game.players.length" class="pin-bottom"></app-game-info>
 
 <button mat-fab color="primary" class="btn-add" (click)="openDialog()">
   <mat-icon>add</mat-icon>
