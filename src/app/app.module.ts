@@ -15,7 +15,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { GameInfoComponent } from './game-info/game-info.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { FirebaseServiceComponent } from './firebase-service/firebase-service.component';
+
 
 
 
@@ -29,7 +34,8 @@ import {MatCardModule} from '@angular/material/card';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    FirebaseServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     MatInputModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
